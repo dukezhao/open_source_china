@@ -13,15 +13,13 @@ class MyApp extends StatefulWidget {
   State<StatefulWidget> createState() => new MyOSCClientState();
 }
 
-
 //此类是一个状态类，
 class MyOSCClientState extends State<MyApp> {
-  final appBarTitles = ['News ', 'Animation', 'discovery', 'Mine'];
-
   //定义2个变量给 底部nagivatorationBar 即IndexedStack用,
-  int _tabIndex = 0;
+  int _tabIndex = 0; //当前选中Tab's index
 
   var tabImages;
+  final appBarTitles = ['News ', 'Animation', 'discovery', 'Member'];
 
 /*  var _body = IndexedStack(
     children: <Widget>[
@@ -40,6 +38,8 @@ class MyOSCClientState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
+    initData(); //init bottomIcon's data
+    //todo 位置还不能确定是否是这里，
     var _body = IndexedStack(
       children: <Widget>[
         //把四个页面加入，
@@ -80,7 +80,6 @@ class MyOSCClientState extends State<MyApp> {
         // （包括选中和未选中状态的图标），appBarTitles是一个字符串数组，表示每个TabItem对应的
         // 页面标题，这两个变量的赋值代码如下：
         //todo
-
       ),
     );
   }
@@ -98,8 +97,13 @@ class MyOSCClientState extends State<MyApp> {
 
   TextStyle getTabTextStyle(int i) {
     //i is the index
-    if (i == _tabIndex) return tabTextStyleSelected;
-    return tabTextStyleNormal;
+    if (i == _tabIndex) {
+      return tabTextStyleSelected;
+    }
+
+    {
+      return tabTextStyleNormal;
+    }
   }
 
   List<BottomNavigationBarItem> getBottomNavItems() {
@@ -110,5 +114,32 @@ class MyOSCClientState extends State<MyApp> {
     }
 
     return list;
+  }
+
+  void initData() {
+    if (tabImages == null) {
+      tabImages = [
+        [
+          getTabImage('images/ic_nav_news_normal.png'),
+          getTabImage('images/ic_nav_news_actived.png')
+        ],
+        [
+          getTabImage('images/ic_nav_tweet_normal.png'),
+          getTabImage('images/ic_nav_tweet_actived.png')
+        ],
+        [
+          getTabImage('images/ic_nav_discover_normal.png'),
+          getTabImage('images/ic_nav_discover_actived.png')
+        ],
+        [
+          getTabImage('images/ic_nav_my_normal.png'),
+          getTabImage('images/ic_nav_my_pressed.png')
+        ]
+      ];
+    }
+  }
+
+  Image getTabImage(String path) {
+    return Image.asset(path,width: 20.0,height: 20.0,);
   }
 }
