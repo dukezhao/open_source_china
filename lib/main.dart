@@ -78,8 +78,14 @@ class MyOSCClientState extends State<MyApp> {
         //由于TabItem是由一个图标和一个文本组件构成，所以这里还需要在MyOSCClientState类中定
         // 义两个变量tabImages和appBarTitles。tabImages是一个二维数组，表示TabItem中的图标
         // （包括选中和未选中状态的图标），appBarTitles是一个字符串数组，表示每个TabItem对应的
-        // 页面标题，这两个变量的赋值代码如下：
-        //todo
+        // 页面标题，这两个变量的赋值代码，见上
+
+        //drawer属性用于为当前页面添加一个侧滑菜单,已经ok
+        drawer: Drawer(
+          child: new Center(
+            child: Text('this is a Drawer'),
+          ),
+        ),
       ),
     );
   }
@@ -140,6 +146,10 @@ class MyOSCClientState extends State<MyApp> {
   }
 
   Image getTabImage(String path) {
-    return Image.asset(path,width: 20.0,height: 20.0,);
+    return Image.asset(
+      path,
+      width: 20.0,
+      height: 20.0,
+    );
   }
 }
