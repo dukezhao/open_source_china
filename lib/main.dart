@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:open_source_china/pages/DiscoveryPage.dart';
 import 'package:open_source_china/pages/MyInfoPage.dart';
+import 'package:open_source_china/pages/NewsDetailsPage.dart';
+
 import 'package:open_source_china/pages/NewsListPage.dart';
 import 'package:open_source_china/pages/TweetsListPage.dart';
 import 'package:flutter/cupertino.dart';
@@ -20,6 +22,7 @@ class MyOSCClientState extends State<MyApp> {
 
   var tabImages;
   final appBarTitles = ['News ', 'Animation', 'discovery', 'Member'];
+  //Map<String, WidgetBuilder> _route;
 
 /*  var _body = IndexedStack(
     children: <Widget>[
@@ -87,6 +90,15 @@ class MyOSCClientState extends State<MyApp> {
           ),
         ),
       ),
+    /*  *//* 一般写法：*/
+
+
+      routes: <String, WidgetBuilder>{'newsDetail': (_) => NewsDetailsPage("mainsetrouter,list跳转 来的详情页")},
+
+
+
+      //另一种写法，跳转Ok
+      /*routes: <String,WidgetBuilder>{'newsDetail': (context) {return  NewsDetailsPage();}},*/
     );
   }
 

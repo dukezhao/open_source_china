@@ -15,6 +15,9 @@ import 'package:flutter/material.dart';
 * */
 
 class NewsDetailsPage extends StatelessWidget {
+  final title;
+  NewsDetailsPage(this.title);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,11 +29,11 @@ class NewsDetailsPage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text('news detail page '),
+            Text(title,style: TextStyle(fontSize: 28.0),),//'news detail page '->title
             RaisedButton(
               child: Text('back'),
             onPressed: (){
-                Navigator.of(context).pop();
+                Navigator.of(context).pop();//来使页面返回到上一级
             },),
 
           ],
