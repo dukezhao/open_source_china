@@ -89,14 +89,14 @@ import 'NewsDetailsPage.dart';
   }
 }
 
+
+*/
 class Todo {
   final String title;
   final String description;
 
   Todo(this.title, this.description);
 }
-*/
-
 
 //osc项目：资讯列表页面
 
