@@ -6,6 +6,7 @@ import 'package:open_source_china/pages/NewsDetailsPage.dart';
 import 'package:open_source_china/pages/NewsListPage.dart';
 import 'package:open_source_china/pages/TweetsListPage.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:open_source_china/widget/MyDrawer.dart';
 
 void main() => runApp(MyApp());
 
@@ -22,6 +23,7 @@ class MyOSCClientState extends State<MyApp> {
 
   var tabImages;
   final appBarTitles = ['News ', 'Animation', 'discovery', 'Member'];
+
   //Map<String, WidgetBuilder> _route;
 
 /*  var _body = IndexedStack(
@@ -83,19 +85,23 @@ class MyOSCClientState extends State<MyApp> {
         // （包括选中和未选中状态的图标），appBarTitles是一个字符串数组，表示每个TabItem对应的
         // 页面标题，这两个变量的赋值代码，见上
 
-        //drawer属性用于为当前页面添加一个侧滑菜单,已经ok
-        drawer: Drawer(
+        //drawer属性用于为当前页面添加一个侧滑菜单,Center这里只是占位，
+        /*    drawer: Drawer(
           child: new Center(
             child: Text('this is a Drawer'),
           ),
-        ),
+        ),*/
+
+        //real drawer ,
+        drawer: MyDrawer(),//已经ok
       ),
-    /*  *//* 一般写法：*/
 
 
-      routes: <String, WidgetBuilder>{'newsDetail': (_) => NewsDetailsPage("mainsetrouter,list跳转 来的详情页")},
+     /* 一般写法：*/
 
-
+      routes: <String, WidgetBuilder>{
+        'newsDetail': (_) => NewsDetailsPage("mainsetrouter,list跳转 来的详情页")
+      },
 
       //另一种写法，跳转Ok
       /*routes: <String,WidgetBuilder>{'newsDetail': (context) {return  NewsDetailsPage();}},*/

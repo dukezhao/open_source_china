@@ -46,7 +46,11 @@ flutter:
       - images/ic_nav_news_normal.png
       - images/ic_nav_tweet_actived.png
       - images/ic_nav_tweet_normal.png
-
+      - images/leftmenu/ic_fabu.png
+      - images/leftmenu/ic_xiaoheiwu.png
+      - images/leftmenu/ic_about.png
+      - images/leftmenu/ic_settings.png
+      - images/cover_img.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.io/assets-and-images/#resolution-aware.
