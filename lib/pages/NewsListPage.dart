@@ -133,7 +133,7 @@ class NewsListPage extends StatelessWidget {
           'https://.oschina.net/news/98455/guido-van-rossum-resigns';
 
       // 轮播图的图片URL
-      map['imgurl'] =
+      map['imgUrl'] =
           'https://static.oschina.net/uploads/img/201807/30113144_1SRR.png';
       slideData.add(map);
     }
