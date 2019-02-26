@@ -180,13 +180,17 @@ class NewsListPage extends StatelessWidget {
     if (i.isOdd) {
       return Divider(height: 1.0,);
     }
+    // 将i取整
     i=i~/2;
+
     //得到列表item数据
     var itemData=listData[i];
+
     //title 's whole Row item
     var titleRow=Row(
       children: <Widget>[
-        Expanded(child: Text(itemData['title'],style: titleTextStyle,),)
+        Expanded(child: Text(itemData['title'],style: titleTextStyle,),)//itemData['title'] ,
+        //for using Data always from map by key to get value
       ],
     );
 
@@ -202,10 +206,73 @@ class NewsListPage extends StatelessWidget {
 
             shape: BoxShape.circle,
             color: const Color(0xFFECECEC),
+            image: DecorationImage(
+                image: NetworkImage(itemData['authorImg']),fit: BoxFit.cover),//authorImg get from map 
+            border: Border.all(
+              color: const Color(0xFFECECEC),
+              width: 2.0,
+            ),
+
           ),
-        )
+        ),//avartar 's end 
+        //时间开始
+        Padding(padding: const EdgeInsets.fromLTRB(0.0,0.0,0.0,0.0,),
+        child: Text(itemData['timeStr'],
+        style: subtitleStyle,),)
       ],
 
+    );
+var thumbImgUrl=itemData['thumb'];
+    //whole item's rightEnd's thumbPic:setup default image by default
+    var thumbImg=Container(
+      margin: const EdgeInsets.all(10.0),
+      width: 60.0,
+      height: 60.0,
+      decoration: BoxDecoration(
+
+        shape: BoxShape.circle,//circle round corner ?
+
+        color: const Color(0xffececec),
+        image: DecorationImage(image: ExactAssetImage('./images/ic_img_default.jpg'),
+          fit: BoxFit.cover
+        ),
+        border: Border.all(
+          color: const Color(0xFFECECEC),
+          width: 2.0,
+        ),
+      ),
+    );
+
+    //如果上边的thumbImgurl不为空,就把之前thumbImg默认的图片替换为网路图
+
+    if(thumbImgUrl!=null && thumbImgUrl.length>0)
+      {
+        thumbImg=Container(
+          margin: const EdgeInsets.all(10.0),
+          width: 60.0,
+          height: 60.0,
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            color: const Color(0xFFECECEC),
+            image: DecorationImage(image: NetworkImage(thumbImgUrl),fit:BoxFit.cover),//这里使用网路图,这里都是测试数据，
+            border: Border.all(
+              color: const Color(0xFFECECEC),
+              width: 2.0,
+            ),
+            ),
+          );
+      }
+
+      //todo row as one line item in listitem
+    var row=Row(
+      children: <Widget>[
+        //left is title, time , comments' count & etc
+        new Expanded(
+
+            flex: 1,//todo what's this
+            child: Padding(padding: null))
+      ],
     )
+
   }
 }
