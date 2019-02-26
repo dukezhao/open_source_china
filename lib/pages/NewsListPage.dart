@@ -143,8 +143,7 @@ class NewsListPage extends StatelessWidget {
       //list item's title
       map['title'] = 'J2Cache 2.3.23 发布，支持 memcached 二级缓存';
       //list item author avatar URL
-      map['authorImg'] =
-          'https://static.oschina.net/uploads/user/0/12_50.jpg?t=1421200584000';
+      map['authorImg'] = 'https://static.oschina.net/uploads/user/0/12_50.jpg?t=1421200584000';
       //列表item的时间文本
       map['timeStr'] = '2018-2-26';
       //列表item的资讯图片
